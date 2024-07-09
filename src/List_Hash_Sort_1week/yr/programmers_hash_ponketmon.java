@@ -1,3 +1,30 @@
+// 1. HashSet 쓰지 않는 방법 - 배열, distinct() 활용
+import java.util.*;
+
+class Solution{
+	public int solution(int[] nums){
+		// 1. 
+		int answer = nums.length / 2; // 미리 최대인 경우 초기화
+		
+		// nums에서 중복 제거하여 새로운 배열에 담기(stream 활용)
+		int[] distArr = Arrays.stream(nums).distinct().toArray();
+		/*
+			toArray() 메서드는 스트림의 요소들을 배열로 변환하는 역할을 합니다.
+			Arrays.stream(nums).distinct()는 nums 배열에서 중복된 요소들을 제거하고, 그 결과를 스트림으로 반환합니다.
+			그 다음에 toArray()를 사용하여 이 스트림을 다시 배열로 변환합니다.
+		*/
+		
+		// 2. 
+		if(distArr.length < nums.length/2){
+			answer = distArr.length;
+
+		}
+		return answer;	
+	}
+}
+
+
+// 2. HashSet 쓰는 방법
 import java.util.*;
 
 class Solution{
